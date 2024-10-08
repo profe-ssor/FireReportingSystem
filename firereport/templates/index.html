@@ -1,0 +1,82 @@
+{% include 'navbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index - Online Fire Report Management System</title>
+    <style type="text/css">
+        #slider {
+            overflow: hidden;
+            position: relative;
+        }
+        #slider figure {
+            position: relative;
+            width: 500%;
+            height: 100vh;
+            margin: 0;
+            left: 0;
+            animation: 20s slider infinite;
+        }
+        #slider figure img {
+            float: left;
+            width: 20%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        @keyframes slider {
+            0% { left: 0; }
+            20% { left: 0; }
+            25% { left: -100%; }
+            45% { left: -100%; }
+            50% { left: -200%; }
+            70% { left: -200%; }
+            75% { left: -300%; }
+            95% { left: -300%; }
+            100% { left: -400%; }
+        }
+        
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            width: 80%;
+        }
+        
+        .overlay-text h1 {
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 20px;
+        }
+        
+        .overlay-text p {
+            font-size: 1.5rem;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body>
+
+<div id="slider">
+    <figure>
+        <img src="{% static 'images/home.jpeg' %}">
+        <img src="{% static 'images/report.jpeg' %}">
+        <img src="{% static 'images/home2.jpeg' %}">
+        <img src="{% static 'images/home3.jpeg' %}">
+        <img src="{% static 'images/home4.jpeg' %}">
+    </figure>
+    <div class="overlay-text">
+        <h1>Welcome to Fire Service Reporting and Emergency System</h1>
+        <p>Quick Response. Efficient Reporting. Saving Lives.</p>
+    </div>
+</div>
+
+</body>
+</html>
+{% include 'footer.html' %}

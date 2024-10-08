@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Login Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}?v=1.0">
+</head>
+<body>
+    <div class="login-form">
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <h2 class="text-center"><strong>Log in</strong></h2>     
+            <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="example@gmail.com" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Password" required="required">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Log in</button>
+            </div>
+            {% if messages %}
+            <div class="form-group">
+                {% for message in messages %}
+                <p id="message" class="alert alert-info">{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="clearfix">
+                <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+                <a href="{% url 'reset_password' %}" class="pull-right">Forgot Password?</a>
+            </div>    
+        </form>
+        <h4 class="text-center"><a href="{% url 'register' %}" style="color: white;">Create an Account, Register Here!!</a></h4>
+    </div>
+</body>
+</html>

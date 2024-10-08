@@ -1,0 +1,96 @@
+/* Navbar branding text */
+.navbar-brand {
+    color: white !important;
+    font-weight: bold;
+}
+
+/* Custom gradient background for navbar or other sections */
+.bg-custom {
+    background: linear-gradient(45deg, rgba(95, 48, 78, 0.8) 32%, rgba(87, 49, 112, 0.8) 100%);
+}
+
+/* Transparent navbar */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black for navbar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for navbar */
+}
+
+/* Navbar links */
+.nav-link {
+    color: white !important;
+    transition: background-color 0.3s ease, border-radius 0.3s ease;
+}
+
+/* Navbar link hover effect */
+.nav-link:hover {
+    background-color: black !important;
+    border-radius: 15px;
+}
+
+/* Image styling for full-width images */
+.frontimage {
+    width: 100%; /* Image takes up full width of the container */
+}
+
+/* Custom styling for the login button */
+#login {
+    padding: 10px 20px;
+    opacity: 0.9;
+    border-radius: 5px;
+    background-color: #573170;
+    color: white;
+    font-weight: bold;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+/* Login button hover effect */
+#login:hover {
+    opacity: 1; /* Removes transparency when hovered */
+}
+
+/* Page title with shadow, padding, border, and uppercase text */
+.page-title {
+    color: red;
+    font-size: 2em; /* 32px based on 16px = 1em */
+    font-weight: 600;
+    padding: 0.5em 1em;
+    box-shadow: 0px 0px 2px #b0b0b0; /* Subtle shadow around the title */
+    text-transform: uppercase;
+    width: 40%;
+    margin: 0 auto; /* Centers the title */
+    border: 5px solid #5f304e; /* Solid border matching the color scheme */
+    letter-spacing: 2px; /* Adds spacing between letters */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Slight text shadow for emphasis */
+}
+
+/* Media query to adjust navbar background on smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        background-color: rgba(0, 0, 0, 0.8); /* Darker background for better visibility on mobile */
+    }
+}
+
+.footer {
+    background-color: #343a40; /* Dark gray background similar to navbar */
+    color: white; /* Default text color */
+    padding: 20px 0; /* Add some padding */
+}
+
+.footer a {
+    color: #FFD700; /* Gold color for links */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.footer a:hover {
+    color: white; /* Change link color on hover */
+    text-decoration: underline; /* Optional: underline on hover */
+}
+
+/* Other existing styles */
+.text-dark {
+    color: #343a40 !important; /* Ensure text is dark */
+}
+
+.img-thumbnail {
+    border-radius: 50%; /* Circular logo */
+}

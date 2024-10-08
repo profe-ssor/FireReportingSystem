@@ -1,0 +1,100 @@
+{% include 'navbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporting - Online Fire Report Management System</title>
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+        }
+        .overlay-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+        .background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .overlay-text {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+        .form-title {
+            color: #ff4500;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-control {
+            margin-bottom: 15px;
+        }
+        .btn-submit {
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay-container">
+        <img src="{% static 'images/home4.jpeg' %}" class="background-image" alt="Fire background">
+        <div class="overlay">
+            <div class="overlay-text">
+                <h1>Report a Fire Emergency</h1>
+                <p>Quick action saves lives. Fill out the form below to report a fire incident.</p>
+            </div>
+            <div class="form-container">
+                <h2 class="form-title">Fire Incident Report</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" name="FullName" class="form-control" placeholder="Enter Full Name" required>
+                    <input type="text" name="MobileNumber" class="form-control" placeholder="Enter Mobile Number" maxlength="10" required>
+                    <input type="text" name="Location" class="form-control" placeholder="Enter Incident Location" required>
+                    <textarea name="Message" class="form-control" placeholder="Describe the emergency..." required></textarea>
+                    <button type="submit" class="btn-submit">Submit Report</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% if error == "no" %}
+    <script>
+        alert('Report Submitted Successfully');
+    </script>
+    {% endif %}
+
+    {% if error == "yes" %}
+    <script>
+        alert('Something went wrong. Please try again.');
+    </script>
+    {% endif %}
+</body>
+</html>
+{% include 'footer.html' %}
